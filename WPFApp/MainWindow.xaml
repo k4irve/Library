@@ -4,8 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFApp"
+        xmlns:views="clr-namespace:WPFApp.Views"
+        xmlns:viewModels="clr-namespace:WPFApp.ViewModels"
         mc:Ignorable="d"
-        Title="Library" Height="450" Width="1000" BorderBrush="Black" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Library" Height="750" Width="1000" BorderBrush="Black" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    
+    <Window.Resources>
+        <DataTemplate x:Name="BestAuthor" DataType="{x:Type viewModels:BestAuthorsViewModel}">
+            <views:BestAuthorView DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate x:Name="BookToBuy" DataType="{x:Type viewModels:BooksToBuyViewModel}">
+            <views:BookToBuyView DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate x:Name="BookToRead" DataType="{x:Type viewModels:BooksToReadViewModel}">
+            <views:BookToReadView DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate x:Name="ReadedBook" DataType="{x:Type viewModels:ReadedBooksViewModel}">
+            <views:ReadedBookView DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate x:Name="MainWindow" DataType="{x:Type viewModels:MainWindowViewModel}">
+            <views:MainWindowView DataContext="{Binding}" />
+        </DataTemplate>
+    </Window.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
