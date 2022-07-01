@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Library" Height="450" Width="1000" BorderBrush="Black" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <DockPanel Background="CornflowerBlue" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" >
+            <StackPanel Orientation="Horizontal">
+                <Button FontWeight="Bold" Width="150" Content="Books to read" Margin="25" Foreground="Black" BorderBrush="Black" />
+                <Button FontWeight="Bold" Width="150" Content="Books to buy" Margin="25" Foreground="Black" BorderBrush="Black" />
+                <Button FontWeight="Bold" Width="150" Content="Readed books" Margin="25" Foreground="Black" BorderBrush="Black" />
+                <Button FontWeight="Bold" Width="150" Content="Best Authors" Margin="25" Foreground="Black" BorderBrush="Black"/>
+                <Button FontWeight="Bold" Width="150" Content="Main Window" Margin="25" Foreground="Black" BorderBrush="Black" />
+            </StackPanel>
+        </DockPanel>
+        <ContentControl  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="4" Content="{Binding}"/>
     </Grid>
 </Window>
