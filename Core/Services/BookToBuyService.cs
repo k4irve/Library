@@ -23,6 +23,7 @@ public class BookToBuyService : IBookToBuyService
     public void Create(string title,double amount)
     {
         _context.BooksToBuy.Add(new BookToBuy() {Title = title,Amount = amount });
+        _context.SaveChanges();
     }
 
     public void Update(int id, string title,double amount)
@@ -39,6 +40,7 @@ public class BookToBuyService : IBookToBuyService
         var book = _context.BooksToBuy.FirstOrDefault(x => x.Id == id);
         if (book == null) throw new Exception("Null reference");
         _context.BooksToBuy.Remove(book);
+        _context.SaveChanges();
     }
 
     public BookToBuy GetById(int id)

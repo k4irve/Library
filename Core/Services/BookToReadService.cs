@@ -23,6 +23,7 @@ public class BookToReadService : IBookToReadService
     public void Create(string title)
     {
         _context.BooksToRead.Add(new BookToRead() {Title = title});
+        _context.SaveChanges();
     }
 
     public void Update(int id, string title)
@@ -38,6 +39,7 @@ public class BookToReadService : IBookToReadService
         var book = _context.BooksToRead.FirstOrDefault(x => x.Id == id);
         if (book == null) throw new Exception("Null reference");
         _context.BooksToRead.Remove(book);
+        _context.SaveChanges();
     }
 
     public BookToRead GetById(int id)

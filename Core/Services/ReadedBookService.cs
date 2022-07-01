@@ -23,6 +23,7 @@ public class ReadedBookService : IReadedBookService
     public void Create(string title,sbyte rate)
     {
         _context.ReadedBooks.Add(new ReadedBook() {Title = title,Rate = rate });
+        _context.SaveChanges();
     }
 
     public void Update(int id, string title,sbyte rate)
