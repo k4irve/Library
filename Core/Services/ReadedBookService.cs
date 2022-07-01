@@ -40,6 +40,7 @@ public class ReadedBookService : IReadedBookService
         var book = _context.ReadedBooks.FirstOrDefault(x => x.Id == id);
         if (book == null) throw new Exception("Null reference");
         _context.ReadedBooks.Remove(book);
+        _context.SaveChanges();
     }
 
     public ReadedBook GetById(int id)
