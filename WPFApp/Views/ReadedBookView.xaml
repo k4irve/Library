@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:WPFApp.Views"
              mc:Ignorable="d"
              d:DesignHeight="600" d:DesignWidth="1000">
-    <Grid>
+    <Grid Background="CornflowerBlue" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -24,7 +24,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         
-        <ListView Grid.Row="0" Grid.Column="0" Grid.RowSpan="8" Grid.ColumnSpan="3" Name="View">
+        <ListView Background="Bisque" Grid.Row="0" Grid.Column="0" Grid.RowSpan="8" Grid.ColumnSpan="3" Name="View">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = Title}" Header="Title" Width="250"></GridViewColumn>
