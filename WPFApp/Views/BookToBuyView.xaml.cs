@@ -29,7 +29,18 @@ public partial class BookToBuyView : UserControl
 
     private void Add(object sender, RoutedEventArgs e)
     {
-        _service.Create(Title.Text, Double.Parse(Amount.Text));
-        GetAll();
+        double output;
+        if (Title.Text != "" && Amount.Text != "" && double.TryParse(Amount.Text, out output))
+        {
+            _service.Create(Title.Text, Double.Parse(Amount.Text));
+            GetAll();
+            Title.Text = "";
+            Amount.Text = "";
+        }
+        else
+        {
+            MessageBox.Show("Invalid input!");
+        }
+        
     }
 }

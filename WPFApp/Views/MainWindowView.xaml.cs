@@ -9,14 +9,4 @@ public partial class MainWindowView : UserControl
     {
         InitializeComponent();
     }
-
-    private void Delete(object sender, RoutedEventArgs e)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    private void Add(object sender, RoutedEventArgs e)
-    {
-        throw new System.NotImplementedException();
-    }
 }

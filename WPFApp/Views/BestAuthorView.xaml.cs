@@ -29,7 +29,16 @@ public partial class BestAuthorView : UserControl
 
     private void Add(object sender, RoutedEventArgs e)
     {
-        _service.Create(FirstName.Text, LastName.Text);
-        GetAll();
+        if (FirstName.Text != "" && LastName.Text != "")
+        {
+            _service.Create(FirstName.Text, LastName.Text);
+            GetAll();
+            FirstName.Text = "";
+            LastName.Text = "";
+        }
+        else
+        {
+            MessageBox.Show("Invalid input!");
+        }
     }
 }

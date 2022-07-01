@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Core.Services;
@@ -29,7 +30,18 @@ public partial class ReadedBookView : UserControl
 
     private void Add(object sender, RoutedEventArgs e)
     {
-        _service.Create(Title.Text, SByte.Parse(Rate.Text));
-        GetAll();
+        int[] checking = new int[10] {1,2,3,4,5,6,7,8,9,10};
+
+        if (Title.Text != "" && Rate.Text != "" && checking.Contains(SByte.Parse(Rate.Text)))
+        {
+            _service.Create(Title.Text, SByte.Parse(Rate.Text));
+            GetAll();
+            Title.Text = "";
+            Rate.Text = "";
+        }
+        else
+        {
+            MessageBox.Show("Invalid input!");
+        }
     }
 }

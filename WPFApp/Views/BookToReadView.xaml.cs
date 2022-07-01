@@ -28,7 +28,15 @@ public partial class BookToReadView : UserControl
 
     private void Add(object sender, RoutedEventArgs e)
     {
-        _service.Create(Title.Text);
-        GetAll();
+        if (Title.Text != "")
+        {
+            _service.Create(Title.Text);
+            GetAll();
+            Title.Text = "";
+        }
+        else
+        {
+            MessageBox.Show("Invalid input!");
+        }
     }
 }
