@@ -2,7 +2,16 @@
 
 namespace Core.Services;
 
-public class BookToReadService
+public interface IBookToReadService
+{
+    void Create(string title);
+    void Update(int id, string title);
+    void Delete(int id);
+    BookToRead GetById(int id);
+    List<BookToRead> GetAll();
+}
+
+public class BookToReadService : IBookToReadService
 {
     private readonly AppDbContext _context;
     
@@ -19,6 +28,7 @@ public class BookToReadService
     public void Update(int id, string title)
     {
         var book = _context.BooksToRead.FirstOrDefault(x => x.Id == id);
+        if (book == null) throw new Exception("Null reference");
         book.Title = title;
         _context.SaveChanges();
     }
@@ -26,12 +36,15 @@ public class BookToReadService
     public void Delete(int id)
     {
         var book = _context.BooksToRead.FirstOrDefault(x => x.Id == id);
+        if (book == null) throw new Exception("Null reference");
         _context.BooksToRead.Remove(book);
     }
 
     public BookToRead GetById(int id)
     {
-        return _context.BooksToRead.FirstOrDefault(x => x.Id == id);
+        var book = _context.BooksToRead.FirstOrDefault(x => x.Id == id);
+        if (book == null) throw new Exception("Null reference");
+        return book;
     }
 
     public List<BookToRead> GetAll()
