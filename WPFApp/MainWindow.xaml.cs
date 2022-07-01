@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFApp.ViewModels;
+using WPFApp.Views;
 
 namespace WPFApp
 {
@@ -23,6 +25,32 @@ namespace WPFApp
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void BooksToRead(object sender, RoutedEventArgs e)
+        {
+            DataContext = new BooksToReadViewModel();
+        }
+
+        private void BooksToBuy(object sender, RoutedEventArgs e)
+        {
+            DataContext = new BooksToBuyViewModel();
+        }
+
+        private void ReadedBooks(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ReadedBooksViewModel();
+        }
+
+        private void BestAuthors(object sender, RoutedEventArgs e)
+        {
+            DataContext = new BestAuthorsViewModel();
+        }
+        
+
+        private void MainWindowButton(object sender, RoutedEventArgs e)
+        {
+            DataContext = new MainWindowView();
         }
     }
 }
