@@ -15,11 +15,19 @@ public partial class BookToBuyView : UserControl
         GetAll();
     }
 
+    /// <summary>
+    /// Method that refreshes the list items in the view
+    /// </summary>
     private void GetAll()
     {
         View.ItemsSource = _service.GetAll();
     }
 
+    /// <summary>
+    /// Method that deletes a given record from a table using the service
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Delete(object sender, RoutedEventArgs e)
     {
         dynamic item = ((Button) sender).DataContext;
@@ -27,6 +35,11 @@ public partial class BookToBuyView : UserControl
         GetAll();
     }
 
+    /// <summary>
+    /// Method that validates the input data and then, if valid, adds the record using the service
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Add(object sender, RoutedEventArgs e)
     {
         double output;

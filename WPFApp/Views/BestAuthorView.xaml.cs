@@ -6,7 +6,7 @@ namespace WPFApp.Views;
 
 public partial class BestAuthorView : UserControl
 {
-    private readonly BestAuthorService _service;
+    private readonly IBestAuthorService _service;
     public BestAuthorView()
     {
         InitializeComponent();
@@ -14,12 +14,20 @@ public partial class BestAuthorView : UserControl
         GetAll();
     }
 
+    /// <summary>
+    /// Method that refreshes the list items in the view
+    /// </summary>
     private void GetAll()
     {
         View.ItemsSource = _service.GetAll();
     }
     
 
+    /// <summary>
+    /// Method that deletes a given record from a table using the service
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Delete(object sender, RoutedEventArgs e)
     {
         dynamic item = ((Button) sender).DataContext;
@@ -27,6 +35,11 @@ public partial class BestAuthorView : UserControl
         GetAll();
     }
 
+    /// <summary>
+    /// Method that validates the input data and then, if valid, adds the record using the service
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Add(object sender, RoutedEventArgs e)
     {
         if (FirstName.Text != "" && LastName.Text != "")

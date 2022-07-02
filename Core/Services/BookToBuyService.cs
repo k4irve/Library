@@ -4,10 +4,34 @@ namespace Core.Services;
 
 public interface IBookToBuyService
 {
+    /// <summary>
+    /// Method to create an object that is added to a database table
+    /// </summary>
+    /// <param name="title"></param>
+    /// <param name="amount"></param>
     void Create(string title,double amount);
+    /// <summary>
+    /// method for editing an object that is retrieved from a table in the database and then saved in it
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="title"></param>
+    /// <param name="amount"></param>
     void Update(int id, string title,double amount);
+    /// <summary>
+    /// Method that checks by id whether such an object exists in a table, and if it does, deletes it.
+    /// </summary>
+    /// <param name="id"></param>
     void Delete(int id);
+    /// <summary>
+    /// Method that retrieves a record by id from a table
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     BookToBuy GetById(int id);
+    /// <summary>
+    /// Method that retrieves all records from a table
+    /// </summary>
+    /// <returns></returns>
     List<BookToBuy> GetAll();
 }
 

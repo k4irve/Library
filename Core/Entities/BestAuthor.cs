@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace Core.Entities;
-
+/// <summary>
+/// Class to be used in the BestAuthors table
+/// </summary>
 public class BestAuthor
 {
     [Key]

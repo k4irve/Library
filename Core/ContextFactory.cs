@@ -2,9 +2,16 @@
 using Microsoft.EntityFrameworkCore.Design;
 
 namespace Core;
-
+/// <summary>
+/// Method that creates an object of the AppDbContext
+/// </summary>
 public class ContextFactory:IDesignTimeDbContextFactory<AppDbContext>
-{
+{ 
+    /// <summary>
+     /// Method that creates an object of the AppDbContext class, i.e. creates a connection to the database
+     /// </summary>
+     /// <param name="args"></param>
+     /// <returns></returns>
     public AppDbContext CreateDbContext(string[] args = null)
     {
         var opt = new DbContextOptionsBuilder<AppDbContext>();
