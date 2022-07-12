@@ -45,8 +45,9 @@ public partial class ReadedBookView : UserControl
     private void Add(object sender, RoutedEventArgs e)
     {
         int[] checking = new int[10] {1,2,3,4,5,6,7,8,9,10};
+        int outputint;
 
-        if (Title.Text != "" && Rate.Text != "" && checking.Contains(SByte.Parse(Rate.Text)))
+        if (Title.Text != "" && Rate.Text != "" && checking.Contains(SByte.Parse(Rate.Text)) &&int.TryParse(Pages.Text, out outputint) && Author.Text != "" && Publisher.Text != "" && PublicationDate.Text != "" )
         {
             _service.Create(Title.Text, SByte.Parse(Rate.Text),Author.Text,Publisher.Text,PublicationDate.SelectedDate.Value,Int32.Parse(Pages.Text));
             GetAll();

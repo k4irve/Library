@@ -44,9 +44,10 @@ public partial class BookToReadView : UserControl
     /// <param name="e"></param>
     private void Add(object sender, RoutedEventArgs e)
     {
-        if (Title.Text != "")
+        int outputint;
+        if (Title.Text != "" &&int.TryParse(Pages.Text, out outputint) && Author.Text != "" && Publisher.Text != "" && PublicationDate.Text != "" )
         {
-            _service.Create(Title.Text,Author.Text,Publisher.Text,PublicationDate.SelectedDate.Value,Int32.Parse(Pages.Text));
+            _service.Create(Title.Text,Author.Text,Publisher.Text,PublicationDate.SelectedDate.Value,Int32.Parse(Pages.Text) );
             GetAll();
             Title.Text = "";
             Author.Text = "";

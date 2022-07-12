@@ -47,7 +47,8 @@ public partial class BookToBuyView : UserControl
     private void Add(object sender, RoutedEventArgs e)
     {
         double output;
-        if (Title.Text != "" && Amount.Text != "" && double.TryParse(Amount.Text, out output))
+        int outputint;
+        if (Title.Text != "" && Amount.Text != "" && double.TryParse(Amount.Text, out output) && int.TryParse(Pages.Text, out outputint) && Author.Text != "" && Publisher.Text != "" && PublicationDate.Text != "" )
         {
             _service.Create(Title.Text, Double.Parse(Amount.Text),Author.Text,Publisher.Text,PublicationDate.SelectedDate.Value,Int32.Parse(Pages.Text));
             GetAll();
