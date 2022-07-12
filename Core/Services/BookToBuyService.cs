@@ -9,14 +9,14 @@ public interface IBookToBuyService
     /// </summary>
     /// <param name="title"></param>
     /// <param name="amount"></param>
-    void Create(string title,double amount);
+    void Create(string title,double amount,string author,string publisher,DateTime publicationDate,int pages);
     /// <summary>
     /// method for editing an object that is retrieved from a table in the database and then saved in it
     /// </summary>
     /// <param name="id"></param>
     /// <param name="title"></param>
     /// <param name="amount"></param>
-    void Update(int id, string title,double amount);
+    void Update(int id, string title,double amount,string author,string publisher,DateTime publicationDate,int pages);
     /// <summary>
     /// Method that checks by id whether such an object exists in a table, and if it does, deletes it.
     /// </summary>
@@ -44,18 +44,22 @@ public class BookToBuyService : IBookToBuyService
         _context = new ContextFactory().CreateDbContext();
     }
 
-    public void Create(string title,double amount)
+    public void Create(string title,double amount,string author,string publisher,DateTime publicationDate,int pages)
     {
-        _context.BooksToBuy.Add(new BookToBuy() {Title = title,Amount = amount });
+        _context.BooksToBuy.Add(new BookToBuy() {Title = title,Amount = amount, Author = author,Publisher = publisher,PublicationDate = publicationDate,Pages = pages});
         _context.SaveChanges();
     }
 
-    public void Update(int id, string title,double amount)
+    public void Update(int id, string title,double amount,string author,string publisher,DateTime publicationDate,int pages)
     {
         var book = _context.BooksToBuy.FirstOrDefault(x => x.Id == id);
         if (book == null) throw new Exception("Null reference");
         book.Amount = amount;
         book.Title = title;
+        book.Author = author;
+        book.Publisher = publisher;
+        book.PublicationDate = publicationDate;
+        book.Pages = pages;
         _context.SaveChanges();
     }
 
