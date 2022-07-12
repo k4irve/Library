@@ -27,12 +27,12 @@ public interface IReadedBookService
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    ReadedBook GetById(int id);
+    BookRead GetById(int id);
     /// <summary>
     /// Method that retrieves all records from a table
     /// </summary>
     /// <returns></returns>
-    List<ReadedBook> GetAll();
+    List<BookRead> GetAll();
 }
 
 public class ReadedBookService : IReadedBookService
@@ -46,13 +46,13 @@ public class ReadedBookService : IReadedBookService
 
     public void Create(string title,sbyte rate)
     {
-        _context.ReadedBooks.Add(new ReadedBook() {Title = title,Rate = rate });
+        _context.ReadBooks.Add(new BookRead() {Title = title,Rate = rate });
         _context.SaveChanges();
     }
 
     public void Update(int id, string title,sbyte rate)
     {
-        var book = _context.ReadedBooks.FirstOrDefault(x => x.Id == id);
+        var book = _context.ReadBooks.FirstOrDefault(x => x.Id == id);
         if (book == null) throw new Exception("Null reference");
         book.Rate = rate;
         book.Title = title;
@@ -61,22 +61,22 @@ public class ReadedBookService : IReadedBookService
 
     public void Delete(int id)
     {
-        var book = _context.ReadedBooks.FirstOrDefault(x => x.Id == id);
+        var book = _context.ReadBooks.FirstOrDefault(x => x.Id == id);
         if (book == null) throw new Exception("Null reference");
-        _context.ReadedBooks.Remove(book);
+        _context.ReadBooks.Remove(book);
         _context.SaveChanges();
     }
 
-    public ReadedBook GetById(int id)
+    public BookRead GetById(int id)
     {
-        var book = _context.ReadedBooks.FirstOrDefault(x => x.Id == id);
+        var book = _context.ReadBooks.FirstOrDefault(x => x.Id == id);
         if (book == null) throw new Exception("Null reference");
         return book;
     }
 
-    public List<ReadedBook> GetAll()
+    public List<BookRead> GetAll()
     {
-        var books = _context.ReadedBooks.ToList();
+        var books = _context.ReadBooks.ToList();
         return books;
     }
 }
