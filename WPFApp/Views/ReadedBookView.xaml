@@ -31,7 +31,7 @@
                     <GridViewColumn DisplayMemberBinding="{Binding Path = Rate}" Header="Rate" Width="100"></GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = Author}" Header="Author" Width="100"></GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = Publisher}" Header="Publisher" Width="100"></GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = PublicationDate}" Header="Publication Date" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = PublicationDate,StringFormat='yyyy-MM-dd'}" Header="Publication Date" Width="100"></GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = Pages}" Header="Pages" Width="100"></GridViewColumn>
                     <GridViewColumn Header="Delete" Width="100">
                         <GridViewColumn.CellTemplate>
@@ -55,6 +55,7 @@
         <DatePicker Name="PublicationDate" Height="30" Margin="5"  Grid.Column="4" Grid.Row="4"></DatePicker>
         <TextBlock  TextAlignment="Center" Margin="-2" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="4">Pages</TextBlock>
         <TextBox Name="Pages" Height="30" Margin="5"  Grid.Column="4" Grid.Row="5"></TextBox>
-        <Button Grid.Column="4" Grid.Row="8" Margin="10" FontSize="20" FontWeight="Bold" Content="ADD" Click="Add"></Button>
+        <Button Grid.Column="4" Grid.Row="6" Margin="15" FontSize="20" FontWeight="Bold" Content="ADD" Click="Add"></Button>
+        <Button Grid.Column="4" Grid.Row="7" Margin="15" FontSize="20" FontWeight="Bold" Content="Sort By Rate" Click="SortByRate"></Button>
     </Grid>
 </UserControl>

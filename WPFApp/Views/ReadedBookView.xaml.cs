@@ -9,11 +9,13 @@ namespace WPFApp.Views;
 public partial class ReadedBookView : UserControl
 {
     private readonly IReadedBookService _service;
+    int sortByRate = 1;
     public ReadedBookView()
     {
         InitializeComponent();
         _service = new ReadedBookService();
         GetAll();
+        
     }
     /// <summary>
     /// Method that refreshes the list items in the view
@@ -59,5 +61,22 @@ public partial class ReadedBookView : UserControl
         {
             MessageBox.Show("Invalid input!");
         }
+    }
+
+    private void SortByRate(object sender, RoutedEventArgs e)
+    {
+        if (sortByRate == 1)
+        {
+            View.ItemsSource = _service.GetAll().OrderBy(x => x.Rate);
+            sortByRate = 2;
+            return;
+        }
+
+        if (sortByRate == 2)
+        {
+            View.ItemsSource = _service.GetAll().OrderByDescending(x => x.Rate);
+            sortByRate = 1;
+        }
+        
     }
 }
