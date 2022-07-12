@@ -46,10 +46,14 @@ public partial class ReadedBookView : UserControl
 
         if (Title.Text != "" && Rate.Text != "" && checking.Contains(SByte.Parse(Rate.Text)))
         {
-            _service.Create(Title.Text, SByte.Parse(Rate.Text));
+            _service.Create(Title.Text, SByte.Parse(Rate.Text),Author.Text,Publisher.Text,PublicationDate.SelectedDate.Value,Int32.Parse(Pages.Text));
             GetAll();
             Title.Text = "";
             Rate.Text = "";
+            Author.Text = "";
+            Publisher.Text = "";
+            PublicationDate.Text = "";
+            Pages.Text = "";
         }
         else
         {
