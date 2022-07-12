@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using Core.Services;
 
@@ -42,7 +43,7 @@ public partial class BookToReadView : UserControl
     {
         if (Title.Text != "")
         {
-            _service.Create(Title.Text);
+            _service.Create(Title.Text,Author.Text,Publisher.Text,PublicationDate.SelectedDate.Value,Int32.Parse(Pages.Text));
             GetAll();
             Title.Text = "";
         }
