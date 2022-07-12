@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Core.Services;
@@ -8,6 +9,9 @@ namespace WPFApp.Views;
 public partial class BookToBuyView : UserControl
 {
     private readonly IBookToBuyService _service;
+
+    private int sortByPrice = 1;
+
     public BookToBuyView()
     {
         InitializeComponent();
@@ -59,5 +63,22 @@ public partial class BookToBuyView : UserControl
             MessageBox.Show("Invalid input!");
         }
         
+    }
+
+    private void SortByPrice(object sender, RoutedEventArgs e)
+    {
+        if (sortByPrice == 1)
+        {
+            View.ItemsSource = _service.GetAll().OrderBy(x => x.Amount);
+            sortByPrice = 2;
+            return;
+        }
+
+        if (sortByPrice == 2)
+        {
+            View.ItemsSource = _service.GetAll().OrderByDescending(x => x.Amount);
+            sortByPrice = 1;
+            return;
+        }
     }
 }
