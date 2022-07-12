@@ -45,10 +45,14 @@ public partial class BookToBuyView : UserControl
         double output;
         if (Title.Text != "" && Amount.Text != "" && double.TryParse(Amount.Text, out output))
         {
-            _service.Create(Title.Text, Double.Parse(Amount.Text));
+            _service.Create(Title.Text, Double.Parse(Amount.Text),Author.Text,Publisher.Text,PublicationDate.SelectedDate.Value,Int32.Parse(Pages.Text));
             GetAll();
             Title.Text = "";
             Amount.Text = "";
+            Author.Text = "";
+            Publisher.Text = "";
+            PublicationDate.Text = "";
+            Pages.Text = "";
         }
         else
         {

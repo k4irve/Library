@@ -27,9 +27,13 @@
         <ListView  Background="Bisque" Grid.Row="0" Grid.Column="0" Grid.RowSpan="8" Grid.ColumnSpan="3" Name="View">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = Title}" Header="Title"  Width="250"></GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = Amount}" Header="Price" Width="250"></GridViewColumn>
-                    <GridViewColumn Header="Delete" Width="250">
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Title}" Header="Title" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Amount}" Header="Price" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Author}" Header="Author" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Publisher}" Header="Publisher" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = PublicationDate}" Header="Publication Date" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Pages}" Header="Pages" Width="100"></GridViewColumn>
+                    <GridViewColumn Header="Delete" Width="100" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="Delete"  Click="Delete"></Button>
@@ -39,10 +43,20 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="24" Grid.Row="0" Grid.Column="4">Title</TextBlock>
-        <TextBox Name="Title" Height="50"  Margin="10" Grid.Column="4" Grid.Row="1"></TextBox>
-        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="24" Grid.Row="2" Grid.Column="4">Price in $</TextBlock>
-        <TextBox Name="Amount" Height="50" Margin="10"  Grid.Column="4" Grid.Row="3"></TextBox>
-        <Button Grid.Column="4" Grid.Row="4" Margin="10" FontSize="20" FontWeight="Bold" Content="ADD" Click="Add"></Button>
+        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Row="0" Grid.Column="4">Title</TextBlock>
+        <TextBox Name="Title" Height="30"  Margin="5" Grid.Column="4" Grid.Row="0"></TextBox>
+        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Row="1" Grid.Column="4">Price in $</TextBlock>
+        <TextBox Name="Amount" Height="30" Margin="5"  Grid.Column="4" Grid.Row="1"></TextBox>
+        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Row="2" Grid.Column="4">Author</TextBlock>
+        <TextBox Name="Author" Height="30" Margin="5"  Grid.Column="4" Grid.Row="2"></TextBox>
+        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="4">Publisher</TextBlock>
+        <TextBox Name="Publisher" Height="30" Margin="5"  Grid.Column="4" Grid.Row="3"></TextBox>
+        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Row="4" Grid.Column="4">Publication Date</TextBlock>
+        <DatePicker Name="PublicationDate" Height="30" Margin="5"  Grid.Column="4" Grid.Row="4"></DatePicker>
+        <TextBlock  TextAlignment="Center" Margin="-2" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="4">Pages</TextBlock>
+        <TextBox Name="Pages" Height="30" Margin="5"  Grid.Column="4" Grid.Row="5"></TextBox>
+        
+        
+        <Button Grid.Column="4" Grid.Row="8" Margin="10" FontSize="18" FontWeight="Bold" Content="ADD" Click="Add"></Button>
     </Grid>
 </UserControl>
