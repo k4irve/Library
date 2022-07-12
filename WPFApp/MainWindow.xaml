@@ -47,7 +47,7 @@
             <StackPanel Orientation="Horizontal">
                 <Button FontWeight="Bold" Width="150" Content="Books to read" Margin="25" Foreground="Black" BorderBrush="Black" Click="BooksToRead" />
                 <Button FontWeight="Bold" Width="150" Content="Books to buy" Margin="25" Foreground="Black" BorderBrush="Black" Click="BooksToBuy"/>
-                <Button FontWeight="Bold" Width="150" Content="Readed books" Margin="25" Foreground="Black" BorderBrush="Black" Click="ReadedBooks"/>
+                <Button FontWeight="Bold" Width="150" Content="Read books" Margin="25" Foreground="Black" BorderBrush="Black" Click="ReadedBooks"/>
                 <Button FontWeight="Bold" Width="150" Content="Best Authors" Margin="25" Foreground="Black" BorderBrush="Black" Click="BestAuthors"/>
                 <Button FontWeight="Bold" Width="150" Content="Main Window" Margin="25" Foreground="Black" BorderBrush="Black" Click="MainWindowButton"/>
             </StackPanel>

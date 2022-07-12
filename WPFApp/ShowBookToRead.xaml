@@ -1,0 +1,42 @@
+﻿<Window x:Class="WPFApp.ShowBookToRead"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:WPFApp"
+        mc:Ignorable="d"
+        Title="ShowBookToRead" Height="450" Width="800">
+    <Grid Background="CornflowerBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="18"  Grid.Row="0" Grid.Column="1">Title</TextBlock>
+        <TextBox Name="Title" Height="30"  Margin="5" Grid.Column="1" Grid.Row="1"></TextBox>
+        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Row="2" Grid.Column="1">Author</TextBlock>
+        <TextBox Name="Author" Height="30" Margin="5"  Grid.Column="1" Grid.Row="3"></TextBox>
+        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Row="4" Grid.Column="1">Publisher</TextBlock>
+        <TextBox Name="Publisher" Height="30" Margin="5"  Grid.Column="1" Grid.Row="5"></TextBox>
+        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Row="6" Grid.Column="1">Publication Date</TextBlock>
+        <DatePicker Name="PublicationDate" Height="30" Margin="5"  Grid.Column="1" Grid.Row="7"></DatePicker>
+        <TextBlock  TextAlignment="Center"  FontWeight="Bold" FontSize="18" Grid.Row="8" Grid.Column="1">Pages</TextBlock>
+        <TextBox Name="Pages" Height="30" Margin="5"  Grid.Column="1" Grid.Row="9"></TextBox>
+        
+    </Grid>
+</Window>

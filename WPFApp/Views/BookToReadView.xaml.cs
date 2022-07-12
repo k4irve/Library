@@ -92,4 +92,11 @@ public partial class BookToReadView : UserControl
             sortByTitle = 1;
         }
     }
+
+    private void Show(object sender, RoutedEventArgs e)
+    {
+        dynamic item = ((Button) sender).DataContext;
+        Window show = new ShowBookToRead(item.Id);
+        show.Show();
+    }
 }
