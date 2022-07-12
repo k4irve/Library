@@ -30,7 +30,7 @@
                     <GridViewColumn DisplayMemberBinding="{Binding Path = Title}" Header="Title" Width="100"></GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = Author}" Header="Author" Width="100"></GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = Publisher}" Header="Publisher" Width="100"></GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = PublicationDate}" Header="Publication Date" Width="100"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = PublicationDate,StringFormat='yyyy-MM-dd'}" Header="Publication Date" Width="100"></GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path = Pages}" Header="Pages" Width="100"></GridViewColumn>
                     <GridViewColumn Header="Delete" Width="100">
                         <GridViewColumn.CellTemplate>
@@ -49,9 +49,11 @@
         <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Row="2" Grid.Column="4">Publisher</TextBlock>
         <TextBox Name="Publisher" Height="30" Margin="5"  Grid.Column="4" Grid.Row="2"></TextBox>
         <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="4">Publication Date</TextBlock>
-        <DatePicker Name="PublicationDate" Height="30" Margin="5"  Grid.Column="3" Grid.Row="4"></DatePicker>
-        <TextBlock  TextAlignment="Center" Margin="-2" FontWeight="Bold" FontSize="18" Grid.Row="4" Grid.Column="4">Pages</TextBlock>
+        <DatePicker Name="PublicationDate" Height="30" Margin="5"  Grid.Column="4" Grid.Row="3"></DatePicker>
+        <TextBlock  TextAlignment="Center"  FontWeight="Bold" FontSize="18" Grid.Row="4" Grid.Column="4">Pages</TextBlock>
         <TextBox Name="Pages" Height="30" Margin="5"  Grid.Column="4" Grid.Row="4"></TextBox>
-        <Button Grid.Column="4" Grid.Row="8" Margin="10" FontSize="20" FontWeight="Bold" Content="ADD" Click="Add"></Button>
+        <Button Grid.Column="4" Grid.Row="7" Margin="15" FontSize="20" FontWeight="Bold" Content="Sort By Author" Click="SortByAuthor"></Button>
+        <Button Grid.Column="4" Grid.Row="6" Margin="15" FontSize="20" FontWeight="Bold" Content="Sort By Title" Click="SortByTitle"></Button>
+        <Button Grid.Column="4" Grid.Row="5" Margin="15" FontSize="20" FontWeight="Bold" Content="ADD" Click="Add"></Button>
     </Grid>
 </UserControl>

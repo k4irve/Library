@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Core.Services;
@@ -8,6 +9,8 @@ namespace WPFApp.Views;
 public partial class BookToReadView : UserControl
 {
     private readonly IBookToReadService _service;
+    private int sortByAuthor = 1;
+    private int sortByTitle = 1;
     public BookToReadView()
     {
         InitializeComponent();
@@ -54,6 +57,38 @@ public partial class BookToReadView : UserControl
         else
         {
             MessageBox.Show("Invalid input!");
+        }
+    }
+
+    private void  SortByAuthor(object sender, RoutedEventArgs e)
+    {
+        if (sortByAuthor == 1)
+        {
+            View.ItemsSource = _service.GetAll().OrderBy(x => x.Author);
+            sortByAuthor = 2;
+            return;
+        }
+
+        if (sortByAuthor == 2)
+        {
+            View.ItemsSource = _service.GetAll().OrderByDescending(x => x.Author);
+            sortByAuthor = 1;
+        }
+    }
+
+    private void SortByTitle(object sender, RoutedEventArgs e)
+    {
+        if (sortByTitle == 1)
+        {
+            View.ItemsSource = _service.GetAll().OrderBy(x => x.Title);
+            sortByTitle = 2;
+            return;
+        }
+
+        if (sortByTitle == 2)
+        {
+            View.ItemsSource = _service.GetAll().OrderByDescending(x => x.Title);
+            sortByTitle = 1;
         }
     }
 }
