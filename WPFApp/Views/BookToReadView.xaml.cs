@@ -46,6 +46,10 @@ public partial class BookToReadView : UserControl
             _service.Create(Title.Text,Author.Text,Publisher.Text,PublicationDate.SelectedDate.Value,Int32.Parse(Pages.Text));
             GetAll();
             Title.Text = "";
+            Author.Text = "";
+            Publisher.Text = "";
+            PublicationDate.Text = "";
+            Pages.Text = "";
         }
         else
         {
