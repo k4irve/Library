@@ -9,14 +9,14 @@ public interface IReadedBookService
     /// </summary>
     /// <param name="title"></param>
     /// <param name="rate"></param>
-    void Create(string title,sbyte rate);
+    void Create(string title,sbyte rate,double amount,string author,string publisher,DateTime publicationDate,int pages);
     /// <summary>
     /// method for editing an object that is retrieved from a table in the database and then saved in it
     /// </summary>
     /// <param name="id"></param>
     /// <param name="title"></param>
     /// <param name="rate"></param>
-    void Update(int id, string title,sbyte rate);
+    void Update(int id, string title,sbyte rate,double amount,string author,string publisher,DateTime publicationDate,int pages);
     /// <summary>
     /// Method that checks by id whether such an object exists in a table, and if it does, deletes it.
     /// </summary>
@@ -44,18 +44,22 @@ public class ReadedBookService : IReadedBookService
         _context = new ContextFactory().CreateDbContext();
     }
 
-    public void Create(string title,sbyte rate)
+    public void Create(string title,sbyte rate,double amount,string author,string publisher,DateTime publicationDate,int pages)
     {
-        _context.ReadBooks.Add(new BookRead() {Title = title,Rate = rate });
+        _context.ReadBooks.Add(new BookRead() {Title = title,Rate = rate,Author = author,Publisher = publisher,PublicationDate = publicationDate,Pages = pages });
         _context.SaveChanges();
     }
 
-    public void Update(int id, string title,sbyte rate)
+    public void Update(int id, string title,sbyte rate,double amount,string author,string publisher,DateTime publicationDate,int pages)
     {
         var book = _context.ReadBooks.FirstOrDefault(x => x.Id == id);
         if (book == null) throw new Exception("Null reference");
         book.Rate = rate;
         book.Title = title;
+        book.Author = author;
+        book.Publisher = publisher;
+        book.PublicationDate = publicationDate;
+        book.Pages = pages;
         _context.SaveChanges();
     }
 
