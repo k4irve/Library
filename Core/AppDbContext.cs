@@ -20,7 +20,7 @@ public class AppDbContext:DbContext
     /// <summary>
     /// ReadedBooks table
     /// </summary>
-    public DbSet<ReadedBook> ReadedBooks { get; set; }
+    public DbSet<BookRead> ReadBooks { get; set; }
     /// <summary>
     /// BooksToBuy table
     /// </summary>
@@ -40,7 +40,7 @@ public class AppDbContext:DbContext
     /// <param name="modelBuilder"></param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<ReadedBook>().HasKey(x => x.Id);
+        modelBuilder.Entity<BookRead>().HasKey(x => x.Id);
         modelBuilder.Entity<BookToBuy>().HasKey(x => x.Id);
         modelBuilder.Entity<BookToRead>().HasKey(x => x.Id);
         modelBuilder.Entity<BestAuthor>().HasKey(x => x.Id);
