@@ -6,7 +6,32 @@
              xmlns:local="clr-namespace:WPFApp.Views"
              mc:Ignorable="d"
              d:DesignHeight="600" d:DesignWidth="1000">
-    <Grid>
-        
+    <Grid Background="CornflowerBlue" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+
+        </Grid.RowDefinitions>
+
+
+        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="24" Grid.Row="1" Grid.Column="0" Background="White">Gabriela</TextBlock>
+        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="24" Grid.Row="1" Grid.Column="1" Background="White">Gondek</TextBlock>
+        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="24" Grid.Row="1" Grid.Column="2" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">13653</TextBlock>
+
+        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="24" Grid.Row="3" Grid.Column="0" Background="White">Michał</TextBlock>
+        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="24" Grid.Row="3" Grid.Column="1" Background="White">Pasztor</TextBlock>
+        <TextBlock  TextAlignment="Center" FontWeight="Bold" FontSize="24" Grid.Row="3" Grid.Column="2" Background="#FFFBFBFB">14094</TextBlock>
+
+
     </Grid>
 </UserControl>
